@@ -1,0 +1,9 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+Name: ColdForce
+Description: A sample C library
+Version: @PROJECT_VERSION@
+Libs: -L${libdir} -lcoldforce
+Cflags: -I${includedir}
