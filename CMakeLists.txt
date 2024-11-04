@@ -7,15 +7,17 @@ file(GLOB_RECURSE HEADERS inc/*.h)
 file(GLOB_RECURSE HEADERS inc/coldforce/core/*.h)
 
 
-add_library(coldforce_static STATIC ${SOURCES})
-add_library(coldforce_shared SHARED ${SOURCES})
+# add_library(coldforce_static STATIC ${SOURCES})
+add_library(coldforce SHARED ${SOURCES})
 
-target_include_directories(coldforce_static PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc)
-target_include_directories(coldforce_shared PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc)
+# target_include_directories(coldforce_static PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc)
+target_include_directories(coldforce PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc)
 
-set_target_properties(coldforce_static PROPERTIES C_STANDARD 99)
-set_target_properties(coldforce_shared PROPERTIES C_STANDARD 99)
-install(TARGETS coldforce_static coldforce_shared
+# set_target_properties(coldforce_static PROPERTIES C_STANDARD 99)
+set_target_properties(coldforce PROPERTIES C_STANDARD 99)
+# install(TARGETS coldforce_static coldforce
+
+install(TARGETS  coldforce
 LIBRARY DESTINATION lib
 ARCHIVE DESTINATION lib)
 install(DIRECTORY inc/ DESTINATION include)
